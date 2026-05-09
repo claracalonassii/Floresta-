@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nativa</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #2e7d32, #3a7d44);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  padding: 20px;
+}
+
+.box {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 350px;
+  margin: auto;
+  text-align: center;
+  color: white;
+}
+
+h1 { margin-bottom: 10px; }
+h2 { margin-bottom: 20px; font-weight: normal; }
+
+.input-group {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  font-size: 14px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-bottom: 2px solid white;
+  background: transparent;
+  color: white;
+  outline: none;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: white;
+  color: #2e7d32;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background: #e0e0e0;
+}
+
+.link {
+  margin-top: 15px;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.voltar {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  background: white;
+  color: #2e7d32;
+  padding: 5px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .box { padding: 20px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="box" id="loginBox">
+    <h1>NATIVA</h1>
+    <h2>Login</h2>
+
+    <form id="loginForm">
+      <div class="input-group">
+        <label>Usuário</label>
+        <input type="text" id="loginUsuario" required>
+      </div>
+
+      <div class="input-group">
+        <label>Senha</label>
+        <input type="password" id="loginSenha" required>
+      </div>
+
+      <button type="submit">Entrar</button>
+    </form>
+
+    <p class="link" onclick="mostrarCadastro()">Ainda não tem conta? Cadastre-se</p>
+  </div>
+
+
+  <div class="box hidden" id="cadastroBox">
+    <div class="voltar" onclick="voltarLogin()">← Voltar</div>
+
+    <h2>Cadastro</h2>
+
+    <form id="cadastroForm">
+      <div class="input-group">
+        <label>Nome</label>
+        <input type="text" id="nome" required>
+      </div>
+
+      <div class="input-group">
+        <label>Email</label>
+        <input type="email" id="email" required>
+      </div>
+
+      <div class="input-group">
+        <label>Senha</label>
+        <input type="password" id="senha" required>
+      </div>
+
+      <div class="input-group">
+        <label>Confirmar senha</label>
+        <input type="password" id="confirmarSenha" required>
+      </div>
+
+      <button type="submit">Cadastrar</button>
+    </form>
+
+    <p class="link" onclick="voltarLogin()">Já tem conta? Fazer login</p>
+  </div>
+
+</div>
+
+<script>
+// trocar telas
+function mostrarCadastro() {
+  document.getElementById("loginBox").classList.add("hidden");
+  document.getElementById("cadastroBox").classList.remove("hidden");
+}
+
+function voltarLogin() {
+  document.getElementById("cadastroBox").classList.add("hidden");
+  document.getElementById("loginBox").classList.remove("hidden");
+}
+
+// login
+document.getElementById("loginForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  let user = document.getElementById("loginUsuario").value;
+  let pass = document.getElementById("loginSenha").value;
+
+  if(user === "admin" && pass === "1234"){
+    alert("Login realizado!");
+  } else {
+    alert("Usuário ou senha incorretos!");
+  }
+});
+
+// cadastro
+document.getElementById("cadastroForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  let senha = document.getElementById("senha").value;
+  let confirmar = document.getElementById("confirmarSenha").value;
+
+  if(senha !== confirmar){
+    alert("As senhas não coincidem!");
+    return;
+  }
+
+  alert("Cadastro realizado com sucesso!");
+  voltarLogin();
+});
+</script>
+
+</body>
+</html>
