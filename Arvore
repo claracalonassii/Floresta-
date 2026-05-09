@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantar Árvores - Nativa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #3a7d44;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 20px;
+        }
+
+        header img.logo {
+            height: 50px;
+            position: absolute;
+            right: 20px;
+        }
+
+        header button.back {
+            position: absolute;
+            left: 20px;
+            padding: 8px 12px;
+            font-size: 14px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            background-color: #ffffff;
+            color: #3a7d44;
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+    
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 20px;
+        }
+
+        label {
+            display: flex;
+            flex-direction: column;
+            font-size: 16px;
+            color: #fff;
+        }
+
+        input, select {
+            margin-top: 5px;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+        }
+
+        input[type="date"] {
+            color: #000;
+        }
+
+     
+        button.save {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            border: none;
+            background-color: #ffffff;
+            color: #3a7d44;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button.save:hover {
+            background-color: #f0f0f0;
+        }
+
+        
+        .success {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #d4edda;
+            color: #155724;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <button class="back" onclick="goBack()">← Voltar</button>
+        <h1>Plantar Árvores</h1>
+        <img src="https://i.ibb.co/zWPFVrnk/download-2-floresta.png"alt="Logo Nativa" class="logo">
+    </header>
+
+    <div class="form-container">
+        <label>
+            Nome da Árvore:
+            <input type="text" id="nomeArvore" placeholder="Ex: Jacarandá">
+        </label>
+
+        <label>
+            Espécie:
+            <select id="especie">
+                <option value="">Selecione</option>
+                <option value="Jacarandá">Jacarandá</option>
+                <option value="Ipê">Ipê</option>
+                <option value="Mogno">Mogno</option>
+                <option value="Figueira">Figueira</option>
+            </select>
+        </label>
+
+        <label>
+            Data do Plantio:
+            <input type="date" id="dataPlantio">
+        </label>
+
+        <label>
+            Quantidade:
+            <input type="number" id="quantidade" min="1" placeholder="Ex: 10">
+        </label>
+
+        <button class="save" onclick="salvarPlantio()">Salvar Plantio</button>
+
+        <div class="success" id="successMsg">Plantio salvo com sucesso! 🌱</div>
+    </div>
+
+    <script>
+        // Voltar para a tela inicial
+        function goBack() {
+            window.location.href = 'index.html'; // substitua pelo link da página inicial
+        }
+
+        // Função de salvar plantio
+        function salvarPlantio() {
+            const nome = document.getElementById('nomeArvore').value.trim();
+            const especie = document.getElementById('especie').value;
+            const data = document.getElementById('dataPlantio').value;
+            const quantidade = document.getElementById('quantidade').value;
+
+            // Validação simples
+            if (!nome || !especie || !data || !quantidade) {
+                alert('Por favor, preencha todos os campos.');
+                return;
+            }
+
+            // Aqui você poderia enviar os dados para um servidor via fetch/ajax
+            console.log({ nome, especie, data, quantidade });
+
+            // Mostrar mensagem de sucesso
+            const successMsg = document.getElementById('successMsg');
+            successMsg.style.display = 'block';
+
+            // Limpar formulário
+            document.getElementById('nomeArvore').value = '';
+            document.getElementById('especie').value = '';
+            document.getElementById('dataPlantio').value = '';
+            document.getElementById('quantidade').value = '';
+        }
+    </script>
+
+</body>
+</html>
