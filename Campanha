@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campanhas - Nativa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #3a7d44;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+  
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 20px;
+        }
+
+        header img.logo {
+            height: 50px;
+            position: absolute;
+            right: 20px;
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+    
+        .campaign-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 0 20px 20px 20px;
+            margin-top: 10px;
+        }
+
+        .campaign-card {
+            background-color: #ffffff;
+            color: #000;
+            display: flex;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.3s;
+        }
+
+        .campaign-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .campaign-card img {
+            width: 120px;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .campaign-card .text {
+            padding: 15px;
+        }
+
+        .campaign-card .text h3 {
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .campaign-card .text p {
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        @media(max-width: 500px){
+            .campaign-card {
+                flex-direction: column;
+            }
+
+            .campaign-card img {
+                width: 100%;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Campanhas</h1>
+        <img src="https://i.ibb.co/zWPFVrnk/download-2-floresta.png" alt="Logo Nativa" class="logo">
+    </header>
+
+    <div class="campaign-container">
+        <div class="campaign-card" onclick="goTo('sos-florestas.html')">
+            <img src="https://i.ibb.co/x8gnV1Xr/paisagem-natural-floresta.webp" alt="SOS Florestas">
+            <div class="text">
+                <h3>SOS Florestas</h3>
+                <p>Combate ativo ao desmatamento ilegal.</p>
+            </div>
+        </div>
+
+        <div class="campaign-card" onclick="goTo('plante-o-futuro.html')">
+            <img src="https://i.ibb.co/LXzGVg2m/capitalismo-esg-sustentabilidade-848x477.webp"  alt="Plante o Futuro">
+            <div class="text">
+                <h3>Plante o Futuro</h3>
+                <p>Plantio de árvores em áreas degradadas.</p>
+            </div>
+        </div>
+
+        <div class="campaign-card" onclick="goTo('eduque-e-conscientize.html')">
+            <img src="https://i.ibb.co/67xV6TkX/s749ms7ahn4opkftvzr472ej62o0lp.jpg"  alt="Eduque e Conscientize">
+            <div class="text">
+                <h3>Eduque e Conscientize</h3>
+                <p>Ações educativas sobre preservação ambiental.</p>
+            </div>
+        </div>
+
+        <div class="campaign-card" onclick="goTo('cidades-verdes.html')">
+            <img src="https://i.ibb.co/MxfNgKwH/images.jpg" alt="Cidades Verdes">
+            <div class="text">
+                <h3>Cidades Verdes</h3>
+                <p>Mais árvores para melhores cidades.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function goTo(page) {
+            window.location.href = page;
+        }
+    </script>
+
+</body>
+</html>
