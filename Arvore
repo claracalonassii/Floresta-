@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plantar Árvores - Nativa</title>
+
     <style>
+
         body {
             font-family: Arial, sans-serif;
             background-color: #3a7d44;
@@ -13,7 +15,7 @@
             padding: 0;
         }
 
-        
+        /* HEADER COM VOLTAR */
         header {
             display: flex;
             align-items: center;
@@ -44,7 +46,7 @@
             font-size: 24px;
         }
 
-    
+        /* FORMULÁRIO */
         .form-container {
             display: flex;
             flex-direction: column;
@@ -71,7 +73,7 @@
             color: #000;
         }
 
-     
+        /* BOTÃO SALVAR */
         button.save {
             margin-top: 20px;
             padding: 15px;
@@ -88,7 +90,7 @@
             background-color: #f0f0f0;
         }
 
-        
+        /* ALERTA DE SUCESSO */
         .success {
             margin-top: 15px;
             padding: 10px;
@@ -97,17 +99,29 @@
             color: #155724;
             display: none;
         }
+
     </style>
+
 </head>
+
 <body>
 
     <header>
-        <button class="back" onclick="goBack()">← Voltar</button>
+
+        <!-- BOTÃO VOLTAR -->
+        <button class="back" onclick="goBack()">
+            ← Voltar
+        </button>
+
         <h1>Plantar Árvores</h1>
-        <img src="https://i.ibb.co/zWPFVrnk/download-2-floresta.png"alt="Logo Nativa" class="logo">
+
+        <img src="https://i.ibb.co/zWPFVrnk/download-2-floresta.png"
+        alt="Logo Nativa" class="logo">
+
     </header>
 
     <div class="form-container">
+
         <label>
             Nome da Árvore:
             <input type="text" id="nomeArvore" placeholder="Ex: Jacarandá">
@@ -134,43 +148,62 @@
             <input type="number" id="quantidade" min="1" placeholder="Ex: 10">
         </label>
 
-        <button class="save" onclick="salvarPlantio()">Salvar Plantio</button>
+        <!-- BOTÃO SALVAR -->
+        <button class="save" onclick="salvarPlantio()">
+            Salvar Plantio
+        </button>
 
-        <div class="success" id="successMsg">Plantio salvo com sucesso! 🌱</div>
+        <div class="success" id="successMsg">
+            Plantio salvo com sucesso! 🌱
+        </div>
+
     </div>
 
     <script>
-        // Voltar para a tela inicial
+
+        // VOLTAR PARA A PÁGINA NATIVA
         function goBack() {
-            window.location.href = 'index.html'; // substitua pelo link da página inicial
+            window.location.href = 'nativa.html';
         }
 
-        // Função de salvar plantio
+        // FUNÇÃO SALVAR
         function salvarPlantio() {
+
             const nome = document.getElementById('nomeArvore').value.trim();
             const especie = document.getElementById('especie').value;
             const data = document.getElementById('dataPlantio').value;
             const quantidade = document.getElementById('quantidade').value;
 
-            // Validação simples
+            // VALIDAÇÃO
             if (!nome || !especie || !data || !quantidade) {
                 alert('Por favor, preencha todos os campos.');
                 return;
             }
 
-            // Aqui você poderia enviar os dados para um servidor via fetch/ajax
-            console.log({ nome, especie, data, quantidade });
+            console.log({
+                nome,
+                especie,
+                data,
+                quantidade
+            });
 
-            // Mostrar mensagem de sucesso
+            // MOSTRAR MENSAGEM
             const successMsg = document.getElementById('successMsg');
             successMsg.style.display = 'block';
 
-            // Limpar formulário
+            // LIMPAR FORMULÁRIO
             document.getElementById('nomeArvore').value = '';
             document.getElementById('especie').value = '';
             document.getElementById('dataPlantio').value = '';
             document.getElementById('quantidade').value = '';
+
+            // IR PARA A PÁGINA DE SUCESSO
+            setTimeout(() => {
+                window.location.href = 'plantioregistrado.html';
+            }, 1200);
+
         }
+
     </script>
 
 </body>
