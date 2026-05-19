@@ -4,26 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nativa</title>
+
     <style>
-     
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
+
         body {
             font-family: Arial, sans-serif;
             background-color: #3a7d44;
             color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        
         header {
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             padding: 20px;
+            width: 100%;
         }
 
         header img.logo {
@@ -36,22 +40,23 @@
             font-size: 28px;
         }
 
- 
         .welcome {
             text-align: center;
             margin-bottom: 30px;
+            padding: 0 15px;
         }
+
         .welcome p:first-child {
             font-weight: bold;
             font-size: 20px;
         }
-
 
         .grid-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
             padding: 0 20px;
+            width: 100%;
         }
 
         .card {
@@ -61,6 +66,7 @@
             padding: 20px;
             cursor: pointer;
             transition: transform 0.2s, background-color 0.3s;
+            width: 100%;
         }
 
         .card:hover {
@@ -71,6 +77,7 @@
         .card img {
             width: 60px;
             margin-bottom: 15px;
+            max-width: 100%;
         }
 
         .card h3 {
@@ -80,7 +87,6 @@
         .card p {
             font-size: 14px;
         }
-
 
         .logout {
             display: block;
@@ -102,15 +108,91 @@
             background-color: #f0f0f0;
         }
 
-        /* ====== RESPONSIVO ====== */
+        /* ===== RESPONSIVO TABLET ===== */
+        @media(max-width: 768px){
+
+            header {
+                flex-direction: column;
+                gap: 10px;
+                padding-top: 25px;
+            }
+
+            header img.logo {
+                position: static;
+                height: 55px;
+            }
+
+            header h1 {
+                font-size: 26px;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+            }
+
+            .card {
+                padding: 18px;
+            }
+
+        }
+
         @media(max-width: 500px){
+
+            body {
+                padding-bottom: 20px;
+            }
+
+            header {
+                padding: 20px 15px;
+            }
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            .welcome p:first-child {
+                font-size: 18px;
+            }
+
+            .welcome p:last-child {
+                font-size: 14px;
+            }
+
             .grid-container {
                 grid-template-columns: 1fr;
+                padding: 0 15px;
+                gap: 15px;
             }
+
+            .card {
+                padding: 20px 15px;
+            }
+
+            .card img {
+                width: 55px;
+            }
+
+            .card h3 {
+                font-size: 18px;
+            }
+
+            .card p {
+                font-size: 13px;
+            }
+
+            .logout {
+                width: calc(100% - 30px);
+                font-size: 15px;
+            }
+
         }
+
     </style>
 </head>
+
 <body>
+
     <header>
         <img src="https://i.ibb.co/zWPFVrnk/download-2-floresta.png" alt="Logo Nativa" class="logo">
         <h1>NATIVA</h1>
@@ -122,35 +204,44 @@
     </div>
 
     <div class="grid-container">
-        <div class="card" onclick="goTo('campanhas.html')">
+
+        <div class="card" onclick="goTo('campanha.html')">
             <img src="https://i.ibb.co/Qv7ZZpyq/download.png" alt="Campanha">
             <h3>Campanha</h3>
             <p>Veja e participe das campanhas</p>
         </div>
-        <div class="card" onclick="goTo('plantar.html')">
+
+        <div class="card" onclick="goTo('arvore.html')">
             <img src="https://i.ibb.co/4ZGKRKBk/download-1.png" alt="Plantar Árvores">
             <h3>Plantar Árvores</h3>
             <p>Registre o plantio de novas Árvores</p>
         </div>
-        <div class="card" onclick="goTo('relatorios.html')">
+
+        <div class="card" onclick="goTo('nativarelatorio.html')">
             <img src="https://i.ibb.co/0p3dVkDb/download-2.png" alt="Relatórios">
             <h3>Relatórios</h3>
             <p>Acompanhe o impacto e resultados</p>
         </div>
+
         <div class="card" onclick="goTo('perfil.html')">
             <img src="https://i.ibb.co/HfTwQqBF/download-3.png" alt="Meu Perfil">
             <h3>Meu Perfil</h3>
             <p>Edite suas informações e preferências</p>
         </div>
+
     </div>
 
-
-    <button class="logout" onclick="goTo('sair.html')">Sair</button>
+    <button class="logout" onclick="goTo('sair.html')">
+        Sair
+    </button>
 
     <script>
+
         function goTo(page) {
             window.location.href = page;
         }
+
     </script>
+
 </body>
 </html>
