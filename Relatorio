@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relatórios - Nativa</title>
+
     <style>
+
         body {
             font-family: Arial, sans-serif;
             background-color: #3a7d44;
@@ -13,7 +15,6 @@
             padding: 0;
         }
 
-        /* HEADER COM VOLTAR */
         header {
             display: flex;
             align-items: center;
@@ -44,7 +45,6 @@
             font-size: 24px;
         }
 
-        /* GRID DE RELATÓRIOS */
         .report-container {
             display: flex;
             flex-direction: column;
@@ -87,23 +87,37 @@
         }
 
         @media(max-width: 500px){
+
             .report-card {
                 flex-direction: row;
             }
+
         }
+
     </style>
+
 </head>
+
 <body>
 
     <header>
-        <button class="back" onclick="goBack()">← Voltar</button>
+
+        <!-- BOTÃO VOLTAR -->
+        <button class="back" onclick="goBack()">
+            ← Voltar
+        </button>
+
         <h1>Relatórios</h1>
+
         <img src="https://i.ibb.co/zWPFVrnk/download-2-floresta.png" alt="Logo Nativa" class="logo">
+
     </header>
 
     <div class="report-container">
+
         <div class="report-card" onclick="goTo('arvores-plantadas.html')">
             <img src="https://i.ibb.co/3y5YzRq6/download-arvore.png" alt="Árvores Plantadas">
+
             <div class="text">
                 <h3>Árvores Plantadas</h3>
                 <p>1.256</p>
@@ -112,6 +126,7 @@
 
         <div class="report-card" onclick="goTo('areas-recuperadas.html')">
             <img src="https://i.ibb.co/39Bw5tHJ/download-planta.png" alt="Áreas Recuperadas">
+
             <div class="text">
                 <h3>Áreas Recuperadas (m²)</h3>
                 <p>45.320</p>
@@ -120,23 +135,26 @@
 
         <div class="report-card" onclick="goTo('pessoas-envolvidas.html')">
             <img src="https://i.ibb.co/gbJLmVnt/download.png" alt="Pessoas Envolvidas">
+
             <div class="text">
                 <h3>Pessoas Envolvidas</h3>
                 <p>3.780</p>
             </div>
         </div>
+
     </div>
 
     <script>
-        // Voltar para a tela inicial
+
+        // VOLTAR PARA A PÁGINA NATIVA
         function goBack() {
-            window.location.href = 'index.html'; // substituir pelo link da home
+            window.location.href = 'nativa.html';
         }
 
-        // Função de navegação para páginas de detalhes
         function goTo(page) {
             window.location.href = page;
         }
+
     </script>
 
 </body>
